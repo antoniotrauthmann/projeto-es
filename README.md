@@ -64,7 +64,7 @@ O objetivo principal do projeto é aplicar conceitos de Engenharia de Software n
 ## 🎥 Vídeo de Apresentação
 
 Assista ao vídeo do projeto:
-🔗 (Adicione aqui o link do vídeo)
+🔗 [(Adicione aqui o link do vídeo)](https://drive.google.com/file/d/17KipqXUz7V8dM-nMRL_1pzxKuK85Oxnu/view?usp=sharing)
 
 
 ---
