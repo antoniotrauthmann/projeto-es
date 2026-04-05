@@ -64,7 +64,7 @@ O objetivo principal do projeto é aplicar conceitos de Engenharia de Software n
 ## 🎥 Vídeo de Apresentação
 
 Assista ao vídeo do projeto:
-🔗 (Adicione aqui o link do vídeo)
+🔗 [Link do vídeo completo](https://drive.google.com/file/d/17KipqXUz7V8dM-nMRL_1pzxKuK85Oxnu/view?usp=sharing)
 
 
 ---
@@ -75,3 +75,7 @@ Este projeto foi desenvolvido com fins acadêmicos, com o objetivo de consolidar
 
 
 ---
+
+[ Grafico de rede do projeto ]
+
+<img width="751" height="471" alt="grafico de rede" src="https://github.com/user-attachments/assets/54562a0a-fca7-4fcb-8efc-d41c2986d961" />
