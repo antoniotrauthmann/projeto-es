@@ -9,6 +9,6 @@
         echo "falha:(" . $mysqli->connect_errno . ")". $mysqli->connecterrno;
     }
     else {
-        echo "Conectado ao banco de dados";
+        // echo "Conectado ao banco de dados";
     }
 ?>
