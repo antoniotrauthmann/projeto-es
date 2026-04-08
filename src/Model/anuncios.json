@@ -1,0 +1,36 @@
+{
+  "anuncios": [
+    {
+      "id": 1,
+      "titulo": "Novo Produto Lançado",
+      "descricao": "Confira esse novo produto incrível",
+      "imagem": "../public/img/anuncio1.jpg",
+      "link": "https://exemplo.com/produto1",
+      "ativo": true
+    },
+    {
+      "id": 2,
+      "titulo": "Promoção Especial",
+      "descricao": "50% de desconto em itens selecionados",
+      "imagem": "../public/img/anuncio2.jpg",
+      "link": "https://exemplo.com/promocao",
+      "ativo": true
+    },
+    {
+      "id": 3,
+      "titulo": "Mensagem do Dia",
+      "descricao": "A midia mais engraçada da semana",
+      "imagem": "../public/img/exemplo.gif",
+      "link": "https://exemplo.com/memes",
+      "ativo": true
+    },
+    {
+      "id": 4,
+      "titulo": "Campanha de Conscientização",
+      "descricao": "Saiba mais sobre nossa missão ambiental",
+      "imagem": "../public/img/anuncio4.jpg",
+      "link": "https://exemplo.com/missao",
+      "ativo": true
+    }
+  ]
+}
