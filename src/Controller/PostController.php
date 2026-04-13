@@ -16,7 +16,6 @@ class PostController {
 
     public function salvar() {
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-            // Captura o texto do formulário
             $conteudo = $_POST['conteudo_texto']; 
             $titulo = "Post da Comunidade"; 
 
@@ -39,4 +38,25 @@ class PostController {
             exit();
         }
     }
+
+    public function curtir() {
+    if (isset($_GET['id'])) {
+        $id_post = $_GET['id'];
+        $model = new PostModel($this->db);
+        $model->adicionarCurtida($id_post);
+    }
+    header("Location: index.php?rota=feed");
+    exit();
+    }
+
+    public function excluir() {
+    if (isset($_GET['id'])) {
+        $id_post = $_GET['id'];
+        $model = new PostModel($this->db);
+        $model->excluir($id_post);
+    }
+    header("Location: index.php?rota=feed");
+    exit();
+    }
+
 }

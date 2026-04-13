@@ -7,7 +7,7 @@ class PostModel {
     }
 
     public function buscarTodos() {
-        $sql = "SELECT * FROM `post_comunidade` ORDER BY `id_post` DESC";;
+        $sql = "SELECT p.*, u.nome FROM post_comunidade p INNER JOIN usuario u ON p.id_usuario = u.id_usuario ORDER BY p.id_post DESC";
         $resultado = $this->db->query($sql);
         return $resultado->fetch_all(MYSQLI_ASSOC);
     }
@@ -17,4 +17,17 @@ class PostModel {
     $stmt->bind_param("isss", $id_usuario, $titulo, $conteudo, $caminho_imagem);
     return $stmt->execute();
     }
+
+    public function adicionarCurtida($id_post) {
+    $stmt = $this->db->prepare("UPDATE post_comunidade SET curtidas = curtidas + 1 WHERE id_post = ?");
+    $stmt->bind_param("i", $id_post);
+    return $stmt->execute();
+    }
+
+    public function excluir($id_post) {
+    $stmt = $this->db->prepare("DELETE FROM post_comunidade WHERE id_post = ?");
+    $stmt->bind_param("i", $id_post);
+    return $stmt->execute();
+    }
+
 }

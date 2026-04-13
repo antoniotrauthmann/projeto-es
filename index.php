@@ -15,6 +15,12 @@ if ($rota === 'feed') {
     $controller->index();
 } elseif ($rota === 'salvar') {
     $controller->salvar();
+} elseif ($rota === 'curtir') {
+    $controller->curtir();
+} elseif ($rota === 'excluir') {
+    $controller->excluir();
+} elseif ($rota === 'manual') {
+    include 'src/View/manualView.php';
 } else {
     echo "<h1>404 - Rota não encontrada</h1>";
 }

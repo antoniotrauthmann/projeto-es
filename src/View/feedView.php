@@ -15,6 +15,28 @@
             padding: 20px;
         }
 
+        nav {
+            width: 100%;
+            max-width: 500px;
+            margin-bottom: 30px;
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: #ffffff;
+            font-weight: bold;
+            padding: 5px 10px;
+            border-bottom: 2px solid transparent;
+        }
+
+        nav a.active {
+            color: #2ecc71;
+            border-bottom: 2px solid #2ecc71;
+        }
+
         form, .post {
             background-color: #2d2d2d;
             padding: 20px;
@@ -49,9 +71,26 @@
         button:hover {
             background-color: #27ae60;
         }
+
+        .btn-excluir {
+            color: #ff4757;
+            text-decoration: none;
+            float: right;
+            font-size: 13px;
+            font-weight: bold;
+        }
+        
+        .btn-excluir:hover {
+            text-decoration: underline;
+        }
     </style>
 </head>
 <body>
+
+    <nav>
+        <a href="index.php?rota=feed" class="active">Comunidade</a>
+        <a href="index.php?rota=manual">Manual de Cuidados 🌿</a>
+    </nav>
 
     <h2>Compartilhe com a comunidade</h2>
 
@@ -63,20 +102,37 @@
         <button type="submit">Postar</button>
     </form>
 
-    <hr>
+    <hr style="width: 100%; max-width: 500px; border: 0; border-top: 1px solid #4d4d4d; margin: 20px 0;">
 
     <div class="feed">
         <?php if (!empty($posts)): ?>
             <?php foreach ($posts as $post): ?>
-                <div class="post" acition 1px solid #ccc; padding: 10px; margin-bottom: 10px;">
+                <div class="post" style="border: 1px solid #4d4d4d; padding: 20px; margin-bottom: 20px; position: relative;">
+                    
+                    <a href="index.php?rota=excluir&id=<?= $post['id_post'] ?>" 
+                       class="btn-excluir" 
+                       onclick="return confirm('Tem certeza que deseja apagar este post?')">
+                       Excluir 🗑️
+                    </a>
+
+                    <strong style="color: #2ecc71;">@<?= htmlspecialchars($post['nome']) ?></strong>
+                    
                     <p><?= htmlspecialchars($post['conteudo']) ?></p>
                     
                     <?php if ($post['caminho_imagem']): ?>
-                        <img src="<?= htmlspecialchars($post['caminho_imagem']) ?>" alt="Imagem" style="max-width: 300px;">
+                        <img src="<?= htmlspecialchars($post['caminho_imagem']) ?>" alt="Imagem" style="max-width: 100%; border-radius: 4px; margin-top: 10px;">
                     <?php endif; ?>
                     
-                    <br>
-                    <small>Postado em: <?= $post['criado_em'] ?></small>
+                    <br><br>
+                    <small style="color: #aaa;">Postado em: <?= $post['criado_em'] ?></small>
+                    
+                    <hr style="border: 0; border-top: 1px solid #4d4d4d; margin: 15px 0;">
+
+                    <div class="curtidas-container">
+                        <a href="index.php?rota=curtir&id=<?= $post['id_post'] ?>" style="text-decoration: none; color: #ff4757; font-weight: bold;">
+                            ❤️ <?= $post['curtidas'] ?> Curtidas
+                        </a>
+                    </div>
                 </div>
             <?php endforeach; ?>
         <?php else: ?>
