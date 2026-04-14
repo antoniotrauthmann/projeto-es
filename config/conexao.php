@@ -6,7 +6,7 @@
 
     $mysqli = new mysqli($hostname, $usuario, $senha, $bancodedados);
     if ($mysqli->connect_errno){
-        echo "falha:(" . $mysqli->connect_errno . ")". $mysqli->connecterrno;
+        echo "falha:(" . $mysqli->connect_errno . ")". $mysqli->connect_error;
     }
     else {
         // echo "Conectado ao banco de dados";
