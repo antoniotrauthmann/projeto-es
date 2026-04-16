@@ -2,11 +2,11 @@
     $hostname = "localhost";
     $bancodedados = "projetoes";
     $usuario = "root";
-    $senha = "123";
+    $senha = "";
 
     $mysqli = new mysqli($hostname, $usuario, $senha, $bancodedados);
     if ($mysqli->connect_errno){
-        echo "falha:(" . $mysqli->connect_errno . ")". $mysqli->connecterrno;
+        echo "falha:(" . $mysqli->connect_errno . ")". $mysqli->connect_errno;
     }
     else {
         // echo "Conectado ao banco de dados";

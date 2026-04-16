@@ -1,0 +1,230 @@
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&display=swap');
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: "DM Sans", sans-serif;
+}
+
+body {
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #f6fdf6;
+}
+
+.container {
+    width: 80%;
+    height: 80vh;
+    display: flex;
+    box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.212);
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+/* ── Lado esquerdo (imagem) ───────────────────────── */
+.form-image {
+    width: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #c2e2c4;
+    padding: 1rem;
+}
+
+.form-image img {
+    width: 35rem;
+    max-width: 100%;
+}
+
+/* ── Lado direito (formulário) ───────────────────── */
+.form {
+    width: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    background-color: #ffffff;
+    padding: 3rem 4rem;   /* era 10rem — muito excessivo */
+    overflow-y: auto;
+}
+
+/* ── Cabeçalho do form ───────────────────────────── */
+.form-header {
+    width: 100%;
+    margin-bottom: 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.form-header h1 {
+    font-size: 1.6rem;
+    font-weight: 700;
+    color: rgb(16, 70, 70);
+    position: relative;
+}
+
+.form-header h1::after {
+    content: '';           /* era '' (valor vazio inválido) — corrigido */
+    display: block;
+    width: 5rem;
+    height: 0.3rem;
+    background-color: #c2e2c4;
+    margin-top: 0.3rem;
+    border-radius: 10px;
+}
+
+/* ── Botão "Entrar" ──────────────────────────────── */
+.login-button {
+    display: flex;
+    align-items: center;
+}
+
+.login-button button {
+    border: none;
+    background-color: rgb(16, 70, 70);
+    padding: 0.4rem 1rem;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+.login-button button:hover {
+    background-color: #c2e2c4;
+}
+
+.login-button button a {
+    text-decoration: none;
+    font-weight: 500;
+    color: #fff;
+}
+
+/* ── Grupo de inputs ─────────────────────────────── */
+.input-group {
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    padding: 1rem 0;   /* era "1rem 10" — unidade faltando */
+}
+
+.input-box {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 1.1rem;
+}
+
+.input-box label {
+    font-size: 0.9rem;
+    font-weight: 500;
+    color: rgb(16, 70, 70);
+}
+
+.input-box input {
+    margin: 0.4rem 0;
+    padding: 0.8rem 1.2rem;
+    border: 1px solid #d4ead5;
+    border-radius: 5px;
+    outline: none;
+    box-shadow: 1px 1px 10px #0000000a;   /* vírgulas inválidas corrigidas */
+    transition: background-color 0.2s, border-color 0.2s;
+}
+
+.input-box input:hover,
+.input-box input:focus {
+    background-color: #f0faf0;
+    border-color: rgb(16, 70, 70);
+}
+
+/* ── Botão "Prosseguir" ──────────────────────────── */
+.continue-button {
+    width: 100%;
+}
+
+.continue-button button {
+    width: 100%;
+    margin-top: 1rem;
+    border: none;
+    background-color: rgb(16, 70, 70);
+    border-radius: 5px;
+    padding: 0.75rem;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+.continue-button button:hover {
+    background-color: #4a9e6b;
+}
+
+.continue-button button a {
+    text-decoration: none;
+    font-size: 0.95rem;
+    font-weight: 600;
+    color: #fff;
+}
+
+/* ── Upload de foto (mantido, sem alterações) ────── */
+#picture__input {
+    display: none;
+}
+
+.picture {
+    width: 200px;
+    height: 200px;
+    background: #c2e2c4;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    border: 3px dashed rgb(16, 70, 70);
+    border-radius: 4px;
+    transition: background-color 0.2s, color 0.2s;
+}
+
+.picture:hover {
+    background-color: rgb(16, 70, 70);
+    color: #c2e2c4;
+}
+
+/* ── Responsividade ──────────────────────────────── */
+@media screen and (max-width: 1330px) {
+    .form-image {
+        display: none;
+    }
+
+    .container {
+        width: 55%;
+    }
+
+    .form {
+        width: 100%;
+        padding: 3rem;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .container {
+        width: 80%;
+    }
+
+    .form {
+        padding: 2rem 1.5rem;
+    }
+}
+
+@media screen and (max-height: 1064px) {   /* px faltando — corrigido */
+    .container {
+        width: 80%;
+        height: auto;
+    }
+
+    .input-group {
+        flex-direction: column;
+        flex-wrap: nowrap;
+    }
+}
