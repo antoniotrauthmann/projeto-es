@@ -5,13 +5,21 @@ error_reporting(E_ALL);
 
 require_once 'config/conexao.php';
 require_once 'src/Controller/PostController.php';
+require_once 'src/Controller/UsuarioController.php';
 
 //(Roteamento simples)
-$rota = $_GET['rota'] ?? 'feed';
+$rota = $_GET['rota'] ?? 'login';
 
 $controller = new PostController($mysqli);
+$usuarioController = new UsuarioController($mysqli);
 
-if ($rota === 'feed') {
+if ($rota === 'login') {
+    $usuarioController->login();
+} elseif ($rota === 'cadastro') {
+    $usuarioController->cadastro();
+} elseif ($rota === 'logout') {
+    $usuarioController->logout();
+} elseif ($rota === 'feed') {
     $controller->index();
 } elseif ($rota === 'salvar') {
     $controller->salvar();
