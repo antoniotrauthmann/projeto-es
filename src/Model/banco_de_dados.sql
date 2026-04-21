@@ -34,7 +34,7 @@ CREATE TABLE `assinatura` (
   `fim` date NOT NULL,
   `planta_mensal` tinyint(1) NOT NULL DEFAULT 0,
   `valor` decimal(10,2) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_uca1400_ai_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
 
@@ -50,7 +50,7 @@ CREATE TABLE `endereco` (
   `cidade` varchar(100) NOT NULL,
   `cep` char(9) NOT NULL,
   `zona` enum('urbana','rural') NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_uca1400_ai_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
 
@@ -65,7 +65,7 @@ CREATE TABLE `entrega` (
   `status` enum('aguardando','coletado','em_rota','entregue') NOT NULL DEFAULT 'aguardando',
   `previsao` datetime DEFAULT NULL,
   `entregue_em` datetime DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_uca1400_ai_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
 
@@ -79,7 +79,7 @@ CREATE TABLE `item_pedido` (
   `id_produto` int(11) NOT NULL,
   `quantidade` int(11) NOT NULL,
   `preco_unitario` decimal(10,2) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_uca1400_ai_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
 
@@ -94,7 +94,7 @@ CREATE TABLE `loja_parceira` (
   `latitude` decimal(9,6) DEFAULT NULL,
   `longitude` decimal(9,6) DEFAULT NULL,
   `telefone` varchar(20) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_uca1400_ai_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
 
@@ -110,7 +110,7 @@ CREATE TABLE `pedido` (
   `status` enum('pendente','confirmado','em_rota','entregue','cancelado') NOT NULL DEFAULT 'pendente',
   `total` decimal(10,2) NOT NULL,
   `criado_em` datetime NOT NULL DEFAULT current_timestamp()
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_uca1400_ai_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
 
@@ -126,7 +126,7 @@ CREATE TABLE `post_comunidade` (
   `curtidas` int(11) NOT NULL DEFAULT 0,
   `caminho_imagem` varchar(255) DEFAULT NULL,
   `criado_em` datetime DEFAULT current_timestamp()
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_uca1400_ai_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `post_comunidade`
@@ -149,7 +149,7 @@ CREATE TABLE `produto` (
   `categoria` ENUM('planta','kit_jardinagem','suplemento','semente','ferramenta','acessorio') NOT NULL,
   `preco` decimal(10,2) NOT NULL,
   `estoque` int(11) NOT NULL DEFAULT 0
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_uca1400_ai_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
 
@@ -165,7 +165,7 @@ CREATE TABLE `usuario` (
   `tipo` enum('cliente','profissional','admin') NOT NULL,
   `plano` enum('basico','premium') DEFAULT NULL,
   `data_cadastro` datetime NOT NULL DEFAULT current_timestamp()
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_uca1400_ai_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `usuario`
