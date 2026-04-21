@@ -1,4 +1,9 @@
-<?php include dirname(__DIR__, 2) . '/config/conexao.php'; ?>
+<?php 
+require_once dirname(__DIR__, 2) . '/config/conexao.php';
+require_once dirname(__DIR__) . '/Helper/Auth.php';
+
+Auth::verificar();
+?>
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>

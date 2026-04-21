@@ -1,5 +1,6 @@
 <?php
 require_once __DIR__ . '/../Model/PostModel.php';
+require_once __DIR__ . '/../Helper/Auth.php';
 
 class PostController {
     private $db;
@@ -9,12 +10,14 @@ class PostController {
     }
 
     public function index() {
+        Auth::verificar();
         $model = new PostModel($this->db);
         $posts = $model->buscarTodos();
         include __DIR__ . '/../View/feedView.php';
     }
 
     public function salvar() {
+        Auth::verificar();
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             $conteudo = $_POST['conteudo_texto']; 
             $titulo = "Post da Comunidade"; 
