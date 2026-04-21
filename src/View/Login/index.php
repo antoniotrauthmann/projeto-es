@@ -1,6 +1,7 @@
 <?php if (session_status() === PHP_SESSION_NONE) session_start(); ?>
 <!DOCTYPE html>
 <html lang="pt-BR">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -8,6 +9,7 @@
     <title>Login</title>
     <link rel="stylesheet" href="src/View/Login/style.css">
 </head>
+
 <body>
     <div class="container">
         <div class="form-image">
@@ -25,19 +27,26 @@
                     <p class="erro"><?= htmlspecialchars($erro) ?></p>
                 <?php endif; ?>
 
-                <div class="input-box">
-                    <label for="email">E-mail</label>
-                    <input id="email" name="email" type="email" placeholder="Digite o e-mail" required>
-                </div>
-                <div class="input-box">
-                    <label for="senha">Senha</label>
-                    <input id="senha" name="senha" type="password" placeholder="Digite a senha" required>
+                <div class="input-group">
+                    <div class="input-box">
+                        <label for="email">E-mail</label>
+                        <input id="email" name="email" type="email" placeholder="Digite o e-mail" required>
+                    </div>
+                    <div class="input-box">
+                        <label for="senha">Senha</label>
+                        <input id="senha" name="senha" type="password" placeholder="Digite a senha" required>
+                    </div>
                 </div>
                 <div class="continue-button">
                     <button type="submit">Entrar</button>
                 </div>
+                <p style="text-align:center; margin-top: 12px; font-size: 14px;">
+                    Não tem conta? <a href="index.php?rota=cadastro" style="color: #1a5c4a;">Cadastre-se</a>
+                </p>
             </form>
         </div>
     </div>
+
 </body>
+
 </html>
