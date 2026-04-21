@@ -147,7 +147,6 @@ CREATE TABLE `produto` (
   `id_loja` int(11) DEFAULT NULL,
   `nome` varchar(150) NOT NULL,
   `categoria` ENUM('planta','kit_jardinagem','suplemento','semente','ferramenta','acessorio') NOT NULL,
-  `categoria` int(11) NOT NULL,
   `preco` decimal(10,2) NOT NULL,
   `estoque` int(11) NOT NULL DEFAULT 0
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_uca1400_ai_ci;

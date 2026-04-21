@@ -21,9 +21,6 @@
                     <div class="title">
                         <h1>Cadastre seu perfil</h1>
                     </div>
-                    <div class="login-button">
-                        <button type="button" onclick="window.location.href='index.php?rota=login'">Entrar</button>
-                    </div>
                 </div>
 
                 <?php if (!empty($erro)): ?>
@@ -62,6 +59,9 @@
                 <div class="continue-button">
                     <button type="submit">Prosseguir</button>
                 </div>
+                <p style="text-align:center; margin-top: 12px; font-size: 14px;">
+                    Já tem conta? <a href="index.php?rota=login" style="color: #1a5c4a;">Entrar</a>
+                </p>
             </form>
         </div>
     </div>
