@@ -1,7 +1,11 @@
+<title>Expresso Verde</title>
 <?php
 
 ini_set('display_errors', 1);
 error_reporting(E_ALL);
+
+include 'src/View/Cabecalho/index.php';
+
 
 require_once 'config/conexao.php';
 require_once 'src/Controller/PostController.php';
@@ -33,6 +37,12 @@ if ($rota === 'login') {
     $controller->excluir();
 } elseif ($rota === 'manual') {
     include 'src/View/manualView.php';
+} elseif ($rota === 'catologo') {
+    include 'src/View/Catalogo_produtos/index.php';
+} elseif ($rota === 'produto') {
+    include 'src/View/Produto/index.php';
+} elseif ($rota === 'perfil') {
+    include 'src/View/Perfil/index.php';
 } elseif ($rota === 'cadastrar_produto') {
     $produtoController->cadastrar();
 } elseif ($rota === 'carrinho') {
