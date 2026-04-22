@@ -34,12 +34,12 @@ class PostController {
                 $destino = 'public/uploads/' . $novo_nome;
 
                 if (move_uploaded_file($_FILES['imagem']['tmp_name'], $destino)) {
-                    $caminho_imagem = $destino;
+                    $post_caminho_imagem = $destino;
                 }
             }
 
             $model = new PostModel($this->db);
-            $model->inserir($id_usuario, $titulo, $conteudo, $caminho_imagem); 
+            $model->inserir($id_usuario, $titulo, $conteudo, $post_caminho_imagem); 
 
             header("Location: index.php?rota=feed");
             exit();

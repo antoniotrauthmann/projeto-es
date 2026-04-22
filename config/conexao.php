@@ -3,8 +3,9 @@
     $bancodedados = "projetoes";
     $usuario = "root";
     $senha = "";
+    $porta = 3306;
 
-    $mysqli = new mysqli($hostname, $usuario, $senha, $bancodedados);
+    $mysqli = new mysqli($hostname, $usuario, $senha, $bancodedados, $porta);
     if ($mysqli->connect_errno){
         echo "falha:(" . $mysqli->connect_errno . ")". $mysqli->connect_errno;
     }
