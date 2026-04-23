@@ -27,7 +27,7 @@ class PostController {
             
             $id_usuario = $_SESSION['usuario_id']; 
 
-            $caminho_imagem = null;
+            $post_caminho_imagem = null;
             if (isset($_FILES['imagem']) && $_FILES['imagem']['error'] === 0) {
                 $extensao = pathinfo($_FILES['imagem']['name'], PATHINFO_EXTENSION);
                 $novo_nome = uniqid() . "." . $extensao;
