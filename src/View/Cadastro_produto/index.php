@@ -1,6 +1,7 @@
 <?php if (session_status() === PHP_SESSION_NONE) session_start(); ?>
 <!DOCTYPE html>
 <html lang="pt-BR">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -8,7 +9,28 @@
     <title>Cadastro de Produtos</title>
     <link rel="stylesheet" href="src/View/Cadastro_produto/style.css">
 </head>
+
 <body>
+    <?php if (!empty($_SESSION['sucesso'])): ?>
+        <div class="modal-overlay" id="modalSucesso">
+            <div class="modal">
+                <div class="modal-icon">✓</div>
+                <p><?= htmlspecialchars($_SESSION['sucesso']) ?></p>
+                <button onclick="fecharModal()">OK</button>
+            </div>
+        </div>
+        <?php unset($_SESSION['sucesso']); ?>
+    <?php endif; ?>
+    <?php if (!empty($_SESSION['erro'])): ?>
+        <div class="modal-overlay" id="modalErro">
+            <div class="modal">
+                <div class="modal-icon" style="background:#fde8e8; color:#c0392b;">✕</div>
+                <p><?= htmlspecialchars($_SESSION['erro']) ?></p>
+                <button onclick="document.getElementById('modalErro').remove()">OK</button>
+            </div>
+        </div>
+        <?php unset($_SESSION['erro']); ?>
+    <?php endif; ?>
     <div class="container">
         <div class="form-image">
             <img src="src/View/Cadastro_produto/img/img1.png">
@@ -67,9 +89,13 @@
                         <div class="input-box">
                             <label>Imagens do Produto</label>
                             <div class="drop-zone" id="dropZone">
-                                <input type="file" id="imagens" name="imagens[]" accept="image/*" multiple hidden>
+                                <input type="file" id="imagens" name="imagens[]" accept="image/*" multiple style="display:none">
                                 <div class="drop-zone-inner" id="dropInner">
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="17 8 12 3 7 8"/><line x1="12" y1="3" x2="12" y2="15"/></svg>
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                                        <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" />
+                                        <polyline points="17 8 12 3 7 8" />
+                                        <line x1="12" y1="3" x2="12" y2="15" />
+                                    </svg>
                                     <p>Arraste imagens aqui ou <span>clique para selecionar</span></p>
                                 </div>
                                 <div class="drop-preview" id="dropPreview"></div>
@@ -78,7 +104,7 @@
                         </div>
                         <div class="input-box">
                             <label for="descricao">Descrição</label>
-                            <textarea id="descricao" name="descricao" placeholder="Descreva o produto..." rows="4"></textarea>
+                            <textarea id="descricao" name="descricao" placeholder="Descreva o produto..." rows="4" required></textarea>
                         </div>
                     </div>
                 </div>
@@ -100,16 +126,23 @@
             });
         });
 
-        const dropZone    = document.getElementById('dropZone');
-        const fileInput   = document.getElementById('imagens');
-        const dropInner   = document.getElementById('dropInner');
+        const dropZone = document.getElementById('dropZone');
+        const fileInput = document.getElementById('imagens');
+        const dropInner = document.getElementById('dropInner');
         const dropPreview = document.getElementById('dropPreview');
         const hiddenInput = document.getElementById('imagensCaminhos');
 
         dropZone.addEventListener('click', () => fileInput.click());
-        dropZone.addEventListener('dragover', e => { e.preventDefault(); dropZone.classList.add('drag-over'); });
+        dropZone.addEventListener('dragover', e => {
+            e.preventDefault();
+            dropZone.classList.add('drag-over');
+        });
         dropZone.addEventListener('dragleave', () => dropZone.classList.remove('drag-over'));
-        dropZone.addEventListener('drop', e => { e.preventDefault(); dropZone.classList.remove('drag-over'); handleFiles(e.dataTransfer.files); });
+        dropZone.addEventListener('drop', e => {
+            e.preventDefault();
+            dropZone.classList.remove('drag-over');
+            handleFiles(e.dataTransfer.files);
+        });
         fileInput.addEventListener('change', () => handleFiles(fileInput.files));
 
         function handleFiles(files) {
@@ -147,6 +180,11 @@
         function updateCaminhos() {
             hiddenInput.value = Array.from(dropPreview.querySelectorAll('img')).map(i => 'uploads/' + i.title).join(',');
         }
+
+        function fecharModal() {
+            document.getElementById('modalSucesso').remove();
+        }
     </script>
 </body>
+
 </html>

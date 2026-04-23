@@ -24,7 +24,13 @@
                 </div>
 
                 <?php if (!empty($erro)): ?>
-                    <p class="erro"><?= htmlspecialchars($erro) ?></p>
+                    <div class="modal-overlay" id="modalErro">
+                        <div class="modal">
+                            <div class="modal-icon" style="background:#fde8e8; color:#c0392b;">✕</div>
+                            <p><?= htmlspecialchars($erro) ?></p>
+                            <button onclick="document.getElementById('modalErro').remove()">OK</button>
+                        </div>
+                    </div>
                 <?php endif; ?>
 
                 <div class="input-group">

@@ -12,4 +12,5 @@
     else {
         // echo "Conectado ao banco de dados";
     }
+    mysqli_report(MYSQLI_REPORT_ERROR | MYSQLI_REPORT_STRICT);
 ?>

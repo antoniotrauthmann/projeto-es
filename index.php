@@ -37,7 +37,7 @@ if ($rota === 'login') {
     $controller->excluir();
 } elseif ($rota === 'manual') {
     include 'src/View/manualView.php';
-} elseif ($rota === 'catologo') {
+} elseif ($rota === 'catalogo') {
     include 'src/View/Catalogo_produtos/index.php';
 } elseif ($rota === 'produto') {
     include 'src/View/Produto/index.php';

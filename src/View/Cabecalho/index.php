@@ -4,7 +4,7 @@
 
 <header class="cabecalho">
     <div class="logo">
-        <a href="index.php?rota=catologo" class="logo-l">Expresso Verde</a>
+        <a href="index.php?rota=catalogo" class="logo-l">Expresso Verde</a>
     </div>
 
     <div class="search-container">

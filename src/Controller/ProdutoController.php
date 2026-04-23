@@ -1,48 +1,63 @@
 <?php
 require_once __DIR__ . '/../Model/ProdutoModel.php';
 
-class ProdutoController {
+class ProdutoController
+{
     private $db;
 
-    public function __construct($mysqli) {
+    public function __construct($mysqli)
+    {
         $this->db = $mysqli;
     }
 
-    public function cadastrar() {
-        $erro = null;
-
+    public function cadastrar()
+    {
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             $nome      = trim($_POST['nome']);
             $categoria = $_POST['categoria'];
             $preco     = $_POST['preco'];
             $estoque   = $_POST['estoque'];
-            $descricao = $_POST['descricao'] ?? '';
+            $descricao = trim($_POST['descricao'] ?? '');
 
-            $model      = new ProdutoModel($this->db);
-            $id_produto = $model->inserir($nome, $categoria, $preco, $estoque, $descricao);
+            // Validação antes de qualquer insert
+            if (empty($_FILES['imagens']['name'][0])) {
+                $_SESSION['erro'] = 'Adicione ao menos uma imagem.';
+                header("Location: index.php?rota=cadastrar_produto");
+                exit();
+            }
 
-            // Só executa se veio ao menos uma imagem
-            if (!empty($_FILES['imagens']['name'][0])) {
+            if (empty($descricao)) {
+                $_SESSION['erro'] = 'Preencha a descrição do produto.';
+                header("Location: index.php?rota=cadastrar_produto");
+                exit();
+            }
+
+            $model = new ProdutoModel($this->db);
+
+            try {
+                $id_produto = $model->inserir($nome, $categoria, $preco, $estoque, $descricao);
+
                 $uploadDir = __DIR__ . '/../../public/uploads/';
 
-                // Cria a pasta se não existir
                 if (!is_dir($uploadDir)) {
                     mkdir($uploadDir, 0755, true);
                 }
 
-                // Percorre cada arquivo enviado
                 foreach ($_FILES['imagens']['tmp_name'] as $i => $tmpName) {
-                    if ($_FILES['imagens']['error'][$i] !== UPLOAD_ERR_OK) continue; // pula se teve erro
+                    if ($_FILES['imagens']['error'][$i] !== UPLOAD_ERR_OK) continue;
 
-                    // Gera nome único para evitar conflitos
                     $nomeArquivo = uniqid() . '_' . basename($_FILES['imagens']['name'][$i]);
                     $destino     = $uploadDir . $nomeArquivo;
 
-                    // Move da pasta temporária para public/uploads e salva no banco
                     if (move_uploaded_file($tmpName, $destino)) {
                         $model->inserirImagem($id_produto, $nomeArquivo);
                     }
                 }
+
+                $_SESSION['sucesso'] = 'Produto cadastrado com sucesso!';
+
+            } catch (Exception $e) {
+                $_SESSION['erro'] = 'Erro ao cadastrar produto. Tente novamente.';
             }
 
             header("Location: index.php?rota=cadastrar_produto");
