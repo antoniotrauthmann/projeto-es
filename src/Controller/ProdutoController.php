@@ -16,9 +16,34 @@ class ProdutoController {
             $categoria = $_POST['categoria'];
             $preco     = $_POST['preco'];
             $estoque   = $_POST['estoque'];
+            $descricao = $_POST['descricao'] ?? '';
 
-            $model = new ProdutoModel($this->db);
-            $model->inserir($nome, $categoria, $preco, $estoque);
+            $model      = new ProdutoModel($this->db);
+            $id_produto = $model->inserir($nome, $categoria, $preco, $estoque, $descricao);
+
+            // Só executa se veio ao menos uma imagem
+            if (!empty($_FILES['imagens']['name'][0])) {
+                $uploadDir = __DIR__ . '/../../public/uploads/';
+
+                // Cria a pasta se não existir
+                if (!is_dir($uploadDir)) {
+                    mkdir($uploadDir, 0755, true);
+                }
+
+                // Percorre cada arquivo enviado
+                foreach ($_FILES['imagens']['tmp_name'] as $i => $tmpName) {
+                    if ($_FILES['imagens']['error'][$i] !== UPLOAD_ERR_OK) continue; // pula se teve erro
+
+                    // Gera nome único para evitar conflitos
+                    $nomeArquivo = uniqid() . '_' . basename($_FILES['imagens']['name'][$i]);
+                    $destino     = $uploadDir . $nomeArquivo;
+
+                    // Move da pasta temporária para public/uploads e salva no banco
+                    if (move_uploaded_file($tmpName, $destino)) {
+                        $model->inserirImagem($id_produto, $nomeArquivo);
+                    }
+                }
+            }
 
             header("Location: index.php?rota=cadastrar_produto");
             exit();
