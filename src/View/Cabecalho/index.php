@@ -28,14 +28,20 @@
     <nav class="nav-menu">
         <a href="index.php?rota=feed" class="btn btn-entrar">comunidade</a>
         <?php 
-        if ($_SESSION["usuario_id"] == NULL)
+        if(isset( $_SESSION["usuario_id"])){
+            $id = $_SESSION["usuario_id"];
+        } else {
+            $id = 0;
+        }
+        
+        if ($id == NULL)
         {
             echo '<a href="index.php?rota=login" class="btn btn-entrar">Entrar</a>';
         } 
-        else 
-        {
+        else if ($id > 0){
             echo 'Bem vindo,<br>' . $_SESSION["usuario_nome"];
             echo '<a href="index.php?rota=perfil" class="btn btn-entrar">Perfil</a>';
+            echo '<a href="index.php?rota=logout" class="btn btn-entrar">Sair</a>';
         }
         ?>
     </nav>
