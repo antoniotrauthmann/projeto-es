@@ -27,19 +27,19 @@ class PostController {
             
             $id_usuario = $_SESSION['usuario_id']; 
 
-            $Post_caminho_imagem = null;
+            $post_caminho_imagem = null;
             if (isset($_FILES['imagem']) && $_FILES['imagem']['error'] === 0) {
                 $extensao = pathinfo($_FILES['imagem']['name'], PATHINFO_EXTENSION);
                 $novo_nome = uniqid() . "." . $extensao;
                 $destino = 'public/uploads/' . $novo_nome;
 
                 if (move_uploaded_file($_FILES['imagem']['tmp_name'], $destino)) {
-                    $Post_caminho_imagem = $destino;
+                    $post_caminho_imagem = $destino;
                 }
             }
 
             $model = new PostModel($this->db);
-            $model->inserir($id_usuario, $titulo, $conteudo, $Post_caminho_imagem); 
+            $model->inserir($id_usuario, $titulo, $conteudo, $post_caminho_imagem); 
 
             header("Location: index.php?rota=feed");
             exit();
