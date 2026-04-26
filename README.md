@@ -61,6 +61,12 @@ O objetivo principal do projeto é aplicar conceitos de Engenharia de Software n
 
 ---
 
+##🗓️ Planejamento de Sprints
+Sprint 1: Gerenciamento de Dados e Estrutura Base
+*US01 – Listagem de Produtos: Implementação da visualização básica de itens na tela de catálogo
+
+---
+
 ## 🎥 Vídeo de Apresentação
 
 Assista ao vídeo do projeto:
