@@ -23,10 +23,10 @@
                         
                         <button type="submit" class="card btn-card">
                             <div class="card-image">
-                                <img src="public/uploads/'. $row["CaminhoImagem"] . '" alt="' . $row["nome"] . '">
+                                <img src="public/uploads/'. $row["produto_caminho_imagem"] . '" alt="' . $row["produto_nome"] . '">
                             </div>
                             <div class="card-content">
-                                <div class="card-title">' . $row["nome"] . '</div>
+                                <div class="card-title">' . $row["produto_nome"] . '</div>
                                 <span class="price">R$ ' . $row["preco"] . '</span>
                                 <span class="card-condition">'. $row["estoque"] .' em estoque</span>
                                 <!-- <div class="location">Paraíso do Tocantins, TO</div> -->

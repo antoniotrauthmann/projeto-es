@@ -23,6 +23,7 @@ class UsuarioController {
                 $_SESSION['usuario_id']    = $usuario['id_usuario'];
                 $_SESSION['usuario_nome']  = $usuario['nome'];
                 $_SESSION['usuario_email'] = $usuario['email'];
+                $_SESSION['usuario_tipo']  = $usuario['tipo'];
                 header("Location: index.php?rota=feed");
                 exit();
             } else {

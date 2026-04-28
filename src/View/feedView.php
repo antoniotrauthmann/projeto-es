@@ -117,12 +117,12 @@
                     </a>
                 <?php endif; ?>
 
-                <strong style="color: #2ecc71;">@<?= htmlspecialchars($post['nome']) ?></strong>
+                <strong style="color: #2ecc71;">@<?= htmlspecialchars($post['usuario_nome']) ?></strong>
                 
                 <p><?= htmlspecialchars($post['conteudo']) ?></p>
                 
-                <?php if ($post['caminho_imagem']): ?>
-                    <img src="<?= htmlspecialchars($post['caminho_imagem']) ?>" alt="Imagem" style="max-width: 100%; border-radius: 4px; margin-top: 10px;">
+                <?php if ($post['post_caminho_imagem']): ?>
+                    <img src="<?= htmlspecialchars($post['post_caminho_imagem']) ?>" alt="Imagem" style="max-width: 100%; border-radius: 4px; margin-top: 10px;">
                 <?php endif; ?>
                 
                 <br><br>

@@ -13,12 +13,12 @@ $result = $result->fetch_assoc();
     </div>
 
     <div class="avatar-section">
-        <div class="avatar-circle"><?= mb_substr($result["nome"], 0, 1, "UTF-8") ?></div> 
+        <div class="avatar-circle"><?= mb_substr($result["usuario_nome"], 0, 1, "UTF-8") ?></div> 
     </div>
 
     <div class="field-group">
         <label>Nome</label>
-        <div class="info-box"><?= $result["nome"] ?></div>
+        <div class="info-box"><?= $result["usuario_nome"] ?></div>
     </div>
 
     <div class="field-group">
