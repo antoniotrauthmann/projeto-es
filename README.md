@@ -50,6 +50,18 @@ O objetivo principal do projeto é aplicar conceitos de Engenharia de Software n
 
 ---
 
+## 🏗️ Arquitetura do Sistema (MVC)
+
+O projeto foi desenvolvido utilizando o padrão de arquitetura **MVC (Model-View-Controller)**, garantindo a separação de responsabilidades e facilitando a manutenção do código
+
+### 📂 Estrutura de Pastas
+
+* **`Model`**: Contém as classes responsáveis pela lógica de dados e comunicação com o banco de dados
+* **`View`**: Contém as páginas que o usuário interage, como o cabeçalho, catálogo e a comunidade
+* **`Controller`**: Atua como o intermediário, recebendo as requisições da View e acionando o Model
+
+---
+
 ## 👥 Integrantes do Time
 
 * Hiago Freitas Jatoba
@@ -58,6 +70,30 @@ O objetivo principal do projeto é aplicar conceitos de Engenharia de Software n
 * Zacaro Cerqueira Barros
 * Gabriel Henrique Coldebella de Souza
 
+
+---
+
+## 🗓️ Planejamento de Sprints
+
+Sprint 1: Gerenciamento de Dados e Estrutura Base
+* US01 – Listagem de Produtos: Implementação da visualização básica de itens na tela de catálogo
+* US02 – Estrutura de Banco: Criação do script do banco de dados em SQL para persistência das informações
+* US03 - Espaço para comunidade: implementação do feed de compartilhamento da comunidade
+
+Sprint 2: Registro e Segurança
+* US04 Interface Dinâmica: Ajuste do cabeçalho para exibir botões de "Entrar", "Perfil" ou "Sair" conforme o status de login
+* US05 Trava de Segurança na Comunidade: Garantia de que apenas o autor de um post possui permissão para excluí-lo
+* US06 Sistema de Login:
+
+---
+
+## 📊 Backlog do Produto
+
+| ID | User Story | Pontos | Status | Critério de Aceitação |
+| :--- | :--- | :--- | :--- | :--- |
+| **US04** | Interface Dinâmica |  | **Concluído** | Cabeçalho ajustado para exibir botões de Entrar/Sair conforme o login |
+| **US05** | adicionar Segurança de Posts |  | **Concluído** | O botão de excluir apenas deve aparecer para o autor do post |
+| **US06** | Sistema de Login |  | **Concluído** | Validar utilizador e manter sessão iniciada via PHP Session |
 
 ---
 
