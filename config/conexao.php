@@ -12,5 +12,6 @@
     else {
         // echo "Conectado ao banco de dados";
     }
+    // Para exibir erros de conexão e consultas
     mysqli_report(MYSQLI_REPORT_ERROR | MYSQLI_REPORT_STRICT);
 ?>

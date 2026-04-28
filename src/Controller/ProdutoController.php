@@ -19,6 +19,12 @@ class ProdutoController
             $estoque   = $_POST['estoque'];
             $descricao = trim($_POST['descricao'] ?? '');
 
+            // Verifica se o usuário está logado e é profissional
+            if (!isset($_SESSION['usuario_id']) || $_SESSION['usuario_tipo'] !== 'profissional') {
+                header("Location: index.php?rota=login");
+                exit();
+            }
+
             // Validação antes de qualquer insert
             if (empty($_FILES['imagens']['name'][0])) {
                 $_SESSION['erro'] = 'Adicione ao menos uma imagem.';
@@ -55,7 +61,6 @@ class ProdutoController
                 }
 
                 $_SESSION['sucesso'] = 'Produto cadastrado com sucesso!';
-
             } catch (Exception $e) {
                 $_SESSION['erro'] = 'Erro ao cadastrar produto. Tente novamente.';
             }

@@ -8,7 +8,7 @@ class UsuarioModel {
 
     public function buscarPorEmail($email) {
         $stmt = $this->db->prepare(
-            "SELECT id_usuario, usuario_nome, email, senha_hash FROM usuario WHERE email = ?"
+            "SELECT id_usuario, usuario_nome, email, senha_hash, tipo FROM usuario WHERE email = ?"
         );
         $stmt->bind_param("s", $email);
         $stmt->execute();
