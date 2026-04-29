@@ -1,0 +1,177 @@
+.pedidos-container {
+    max-width: 900px;
+    margin: 40px auto;
+    padding: 0 20px;
+    font-family: 'Inter', sans-serif;
+}
+
+.pedidos-container h1 {
+    color: #2c3e50;
+    margin-bottom: 30px;
+    border-bottom: 2px solid #27ae60;
+    padding-bottom: 10px;
+    display: inline-block;
+}
+
+.empty-pedidos {
+    text-align: center;
+    padding: 60px 20px;
+    background: #f9f9f9;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+}
+
+.empty-pedidos i {
+    font-size: 64px;
+    color: #bdc3c7;
+    margin-bottom: 20px;
+}
+
+.empty-pedidos p {
+    font-size: 1.2rem;
+    color: #7f8c8d;
+    margin-bottom: 20px;
+}
+
+.btn-comprar {
+    display: inline-block;
+    padding: 12px 24px;
+    background: #27ae60;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 4px;
+    font-weight: 500;
+    transition: background 0.3s;
+}
+
+.btn-comprar:hover {
+    background: #2ecc71;
+}
+
+.pedidos-lista {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.pedido-card {
+    background: #fff;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+    overflow: hidden;
+    border: 1px solid #eee;
+}
+
+.pedido-header {
+    background: #f8f9fa;
+    padding: 15px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid #eee;
+}
+
+.pedido-numero {
+    font-weight: bold;
+    color: #2c3e50;
+    margin-right: 15px;
+    font-size: 1.1rem;
+}
+
+.pedido-data {
+    color: #7f8c8d;
+    font-size: 0.9rem;
+}
+
+.pedido-status {
+    padding: 6px 12px;
+    border-radius: 20px;
+    font-size: 0.85rem;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
+.status-pendente {
+    background: #f39c12;
+    color: #fff;
+}
+
+.status-confirmado, .status-entregue {
+    background: #27ae60;
+    color: #fff;
+}
+
+.status-em_rota {
+    background: #3498db;
+    color: #fff;
+}
+
+.status-cancelado {
+    background: #e74c3c;
+    color: #fff;
+}
+
+.pedido-itens {
+    padding: 20px;
+}
+
+.pedido-itens ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.pedido-itens li {
+    display: flex;
+    padding: 10px 0;
+    border-bottom: 1px dashed #eee;
+    align-items: center;
+}
+
+.pedido-itens li:last-child {
+    border-bottom: none;
+}
+
+.item-qtd {
+    color: #7f8c8d;
+    width: 40px;
+    font-weight: bold;
+}
+
+.item-nome {
+    flex: 1;
+    color: #2c3e50;
+}
+
+.item-preco {
+    color: #34495e;
+    font-weight: 500;
+}
+
+.pedido-footer {
+    background: #fbfcfc;
+    padding: 15px 20px;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    border-top: 1px solid #eee;
+}
+
+.pedido-total-label {
+    color: #7f8c8d;
+    margin-right: 15px;
+}
+
+.pedido-total-valor {
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: #27ae60;
+}
+
+@media (max-width: 600px) {
+    .pedido-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 10px;
+    }
+}

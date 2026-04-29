@@ -1,3 +1,4 @@
+<?php include 'src/View/Cabecalho/index.php'; ?>
 <link rel="stylesheet" href="src/View/Perfil/style.css">
 
 <?php
