@@ -7,14 +7,14 @@ class PostModel {
     }
 
     public function buscarTodos() {
-        $sql = "SELECT p.*, u.nome FROM post_comunidade p INNER JOIN usuario u ON p.id_usuario = u.id_usuario ORDER BY p.id_post DESC";
+        $sql = "SELECT p.*, u.usuario_nome FROM post_comunidade p INNER JOIN usuario u ON p.id_usuario = u.id_usuario ORDER BY p.id_post DESC";
         $resultado = $this->db->query($sql);
         return $resultado->fetch_all(MYSQLI_ASSOC);
     }
 
-    public function inserir($id_usuario, $titulo, $conteudo, $caminho_imagem) {
-        $stmt = $this->db->prepare("INSERT INTO post_comunidade (id_usuario, titulo, conteudo, caminho_imagem, curtidas) VALUES (?, ?, ?, ?, 0)");
-        $stmt->bind_param("isss", $id_usuario, $titulo, $conteudo, $caminho_imagem);
+    public function inserir($id_usuario, $titulo, $conteudo, $post_caminho_imagem) {
+        $stmt = $this->db->prepare("INSERT INTO post_comunidade (id_usuario, titulo, conteudo, post_caminho_imagem, curtidas) VALUES (?, ?, ?, ?, 0)");
+        $stmt->bind_param("isss", $id_usuario, $titulo, $conteudo, $post_caminho_imagem);
         return $stmt->execute();
     }
 

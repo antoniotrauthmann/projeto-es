@@ -10,12 +10,12 @@ $first_result = $result->fetch_assoc();
 <div class="product-container">
     <div class="left-column">
         <div class="main-image">
-            <?= '<img src="public/uploads/'. $first_result["CaminhoImagem"] .'">'?>
+            <?= '<img src="public/uploads/'. $first_result["produto_caminho_imagem"] .'">'?>
         </div>
         <div class="thumbnail-gallery">
-            <?= '<img src="public/uploads/'. $first_result["CaminhoImagem"] .'">'?>
+            <?= '<img src="public/uploads/'. $first_result["produto_caminho_imagem"] .'">'?>
             <?php while($row = $result->fetch_assoc()) { ?>
-            <?= '<img src="public/uploads/'. $row["CaminhoImagem"] .'">'?>
+            <?= '<img src="public/uploads/'. $row["produto_caminho_imagem"] .'">'?>
             <?php } ?>
         </div>
     </div>
@@ -25,7 +25,7 @@ $first_result = $result->fetch_assoc();
             ferramentas / escavação / pá
         </div>
         
-        <h1 class="product-title"><?= $first_result["nome"]?></h1>
+        <h1 class="product-title"><?= $first_result["produto_nome"]?></h1>
         
         <div class="promo-tag">
             <?= "R$ ". ($first_result["preco"] - ($first_result["preco"]/5)) . " na 1ª compra"?>
