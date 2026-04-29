@@ -96,6 +96,20 @@ Sprint 2: Registro e Segurança
 | **US06** | Sistema de Login |  | **Concluído** | Validar utilizador e manter sessão iniciada via PHP Session |
 
 ---
+## 📋 Requisitos do Sistema
+
+### Requisitos Funcionais (RF)
+* **RF01**: O sistema deve permitir o cadastro e login de usuários
+* **RF02**: O sistema deve permitir a visualização de produtos de jardinagem
+* **RF03**: O sistema deve permitir que usuários logados postem na comunidade
+* **RF04**: O sistema deve impedir a exclusão de posts por usuários que não sejam seus autores
+* **RF05**: O sistema deve impedir que usuarios que não são vendedores não possam publicar vendas 
+
+### Requisitos Não Funcionais (RNF)
+* **RNF01 (Segurança)**: As sessões devem ser protegidas via PHP `session_start()`.
+* **RNF02 (Usabilidade)**: A interface deve utilizar o framework CSS FontAwesome para ícones intuitivos.
+
+---
 
 ## 🎥 Vídeo de Apresentação
 
