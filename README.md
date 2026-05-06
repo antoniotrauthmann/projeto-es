@@ -66,15 +66,33 @@ O projeto foi desenvolvido utilizando o padrão de arquitetura **MVC (Model-View
 ## 🗓️ Planejamento de Sprints
 
 Sprint 1: Gerenciamento de Dados e Estrutura Base
+Valor: Permitir a visualização básica da tela de catálogo de produtos, contendo todos os seus atributos, previamente definidos no banco de dados, e da aba de comunidade. 
+
+Objetivo: Implementar a base funcional do sistema, incluindo persistência de dados, listagem de produtos a partir do banco e estrutura inicial do feed da comunidade, garantindo que a aplicação consiga exibir informações reais de forma integrada entre backend e frontend.
+
+Requisitos:
 * US01 – Listagem de Produtos: Implementação da visualização básica de itens na tela de catálogo
 * US02 – Estrutura de Banco: Criação do script do banco de dados em SQL para persistência das informações
 * US03 - Espaço para comunidade: implementação do feed de compartilhamento da comunidade
 
-Sprint 2: Registro e Segurança
-* US04 Interface Dinâmica: Ajuste do cabeçalho para exibir botões de "Entrar", "Perfil" ou "Sair" conforme o status de login
-* US05 Trava de Segurança na Comunidade: Garantia de que apenas o autor de um post possui permissão para excluí-lo
-* US06 Sistema de Login: Garantia que o usuário possa acessar seu perfil, visualizar dados.
+[relatorio - sprint 2](https://github.com/antoniotrauthmann/projeto-es/tree/develop/relatorios/iteracao_2.md)
 
+Sprint 2: Registro e Segurança
+Valor: Permitir que usuários se autentiquem na aplicação e tenham acesso seguro às suas informações, garantindo controle de acesso e proteção básica sobre ações na comunidade.
+
+Objetivo: Implementar o sistema de autenticação de usuários, incluindo login e controle de sessão, além de aplicar regras de autorização na interface e nas funcionalidades da comunidade, assegurando que ações sensíveis (como exclusão de posts) sejam restritas aos respectivos autores.
+
+Requisitos:
+* US04 - Interface Dinâmica: Ajuste do cabeçalho para exibir botões de "Entrar", "Perfil" ou "Sair" conforme o status de login
+* US05 - Trava de Segurança na Comunidade: Garantia de que apenas o autor de um post possui permissão para excluí-lo
+* US06 - Sistema de Login: Garantia que o usuário possa acessar seu perfil, visualizar dados.
+
+Sprint 3: 
+* US07 - 
+* US08 -
+* US09 -
+
+---
 ---
 
 ## 📊 Histórias de usuário
