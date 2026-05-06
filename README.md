@@ -71,9 +71,8 @@ Valor: Permitir a visualização básica da tela de catálogo de produtos, conte
 Objetivo: Implementar a base funcional do sistema, incluindo persistência de dados, listagem de produtos a partir do banco e estrutura inicial do feed da comunidade, garantindo que a aplicação consiga exibir informações reais de forma integrada entre backend e frontend.
 
 Requisitos:
-* US01 – Listagem de Produtos: Implementação da visualização básica de itens na tela de catálogo
-* US02 – Estrutura de Banco: Criação do script do banco de dados em SQL para persistência das informações
-* US03 - Espaço para comunidade: implementação do feed de compartilhamento da comunidade
+* RF02 – Navegação no Catálogo
+* RF03 – Comunidade
 
 ### Sprint 2: Registro e Segurança
 Valor: Permitir que usuários se autentiquem na aplicação e tenham acesso seguro às suas informações, garantindo controle de acesso e proteção básica sobre ações na comunidade.
@@ -81,18 +80,23 @@ Valor: Permitir que usuários se autentiquem na aplicação e tenham acesso segu
 Objetivo: Implementar o sistema de autenticação de usuários, incluindo login e controle de sessão, além de aplicar regras de autorização na interface e nas funcionalidades da comunidade, assegurando que ações sensíveis (como exclusão de posts) sejam restritas aos respectivos autores.
 
 Requisitos:
-* US04 - Interface Dinâmica: Ajuste do cabeçalho para exibir botões de "Entrar", "Perfil" ou "Sair" conforme o status de login
-* US05 - Trava de Segurança na Comunidade: Garantia de que apenas o autor de um post possui permissão para excluí-lo
-* US06 - Sistema de Login: Garantia que o usuário possa acessar seu perfil, visualizar dados.
+* RF01 – Cadastro/Login de Usuário
+* RF03 – Comunidade (restrição de exclusão)
+* RF06 – Gerenciamento de Perfil
 
 [Relatório - Sprint 2](relatorios/iteracao_2.md)
 
-### Sprint 3: 
-* US07 - 
-* US08 -
-* US09 -
+### Sprint 3: API de Integração
 
----
+Valor: Permitir comunicação completa entre frontend e backend por meio de API.
+
+Objetivo: Implementar endpoints em PHP nativo para operações de leitura e escrita, utilizando JSON.
+
+Requisitos:
+* RF01 – Cadastro/Login de Usuário (via API)
+* RF02 – Navegação no Catálogo (via API)
+* RF03 – Comunidade (criação e listagem via API)
+
 ---
 
 ## 📊 Histórias de usuário
