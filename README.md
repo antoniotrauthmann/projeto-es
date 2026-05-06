@@ -65,7 +65,7 @@ O projeto foi desenvolvido utilizando o padrão de arquitetura **MVC (Model-View
 
 ## 🗓️ Planejamento de Sprints
 
-Sprint 1: Gerenciamento de Dados e Estrutura Base
+### Sprint 1: Gerenciamento de Dados e Estrutura Base
 Valor: Permitir a visualização básica da tela de catálogo de produtos, contendo todos os seus atributos, previamente definidos no banco de dados, e da aba de comunidade. 
 
 Objetivo: Implementar a base funcional do sistema, incluindo persistência de dados, listagem de produtos a partir do banco e estrutura inicial do feed da comunidade, garantindo que a aplicação consiga exibir informações reais de forma integrada entre backend e frontend.
@@ -75,9 +75,7 @@ Requisitos:
 * US02 – Estrutura de Banco: Criação do script do banco de dados em SQL para persistência das informações
 * US03 - Espaço para comunidade: implementação do feed de compartilhamento da comunidade
 
-[relatorio - sprint 2](https://github.com/antoniotrauthmann/projeto-es/blob/fix/planejamento_sprints/relatorios/iteracao_2.md)
-
-Sprint 2: Registro e Segurança
+### Sprint 2: Registro e Segurança
 Valor: Permitir que usuários se autentiquem na aplicação e tenham acesso seguro às suas informações, garantindo controle de acesso e proteção básica sobre ações na comunidade.
 
 Objetivo: Implementar o sistema de autenticação de usuários, incluindo login e controle de sessão, além de aplicar regras de autorização na interface e nas funcionalidades da comunidade, assegurando que ações sensíveis (como exclusão de posts) sejam restritas aos respectivos autores.
@@ -87,7 +85,9 @@ Requisitos:
 * US05 - Trava de Segurança na Comunidade: Garantia de que apenas o autor de um post possui permissão para excluí-lo
 * US06 - Sistema de Login: Garantia que o usuário possa acessar seu perfil, visualizar dados.
 
-Sprint 3: 
+[Relatório - Sprint 2](relatorios/iteracao_2.md)
+
+### Sprint 3: 
 * US07 - 
 * US08 -
 * US09 -
@@ -118,45 +118,43 @@ Sprint 3:
 
 ### Requisitos Funcionais (RF)
 
-### RF01 Cadastro do Usuário / Login do Usuário
+### RF01 Cadastro/Login de Usuário
+* O sistema deve permitir o cadastro de usuários
+* O sistema deve permitir login de usuários
 
-* O sistema deve permitir o cadastro e login de usuários
+### RF02 Navegação no Catálogo
+* O sistema deve permitir visualizar produtos
+* O sistema deve permitir navegação por categorias
+* O sistema deve permitir busca por produtos e lojas
+* O sistema deve exibir informações dos produtos e lojas
 
-### RF02  Navegação no Catálogo / filtragem
+### RF03 Comunidade
+* O sistema deve permitir que usuários logados postem
+* O sistema deve impedir exclusão de posts por terceiros
 
-* O sistema deve permitir a visualização de produtos de jardinagem
-* O sistema deve exibir os catalagos dos itens disponiveis para compra e permitir navegar por categorias
-* O sistema deve permitir busca por produtos e lojas especificas
-* O sistema deve exibir informações dos produtos e das lojas parceiras
+### RF04 Regra de Negócio de Vendas
+* O sistema deve impedir que usuários não vendedores publiquem produtos
 
-### RF04 Comunidade 
+### RF05 Carrinho de Compras
+* O sistema deve permitir adicionar produtos ao carrinho
+* O sistema deve permitir remover produtos do carrinho
+* O sistema deve permitir alterar quantidade
+* O sistema deve calcular o valor total
 
-* O sistema deve permitir que usuários logados postem na comunidade
-* O sistema deve impedir a exclusão de posts por usuários que não sejam seus autores
+### RF06 Gerenciamento de Perfil
+* O sistema deve permitir visualizar dados do perfil
+* O sistema deve permitir editar dados
+* O sistema deve permitir alterar senha
 
-## RF06 regra de nogacios
+### RF07 Histórico de Compras
+* O sistema deve exibir itens comprados
+* O sistema deve exibir data e horário das compras
 
-* O sistema deve impedir que usuarios que não são vendedores não possam publicar vendas 
-
-### RF09 carrinho de compras 
-* O sistema deve permitir adicionar os produtos ao carrinho de compras  
-* O sistema deve permitir que o usuario faça alterações como remover ou alterar o quantidade do item no carrinho 
-* O sistema deve calcular automaticamente o valor total da compra
-
-### RF10 Gerenciamento de Perfil
-* O sistema deve permitir que usuários visualizem seus dados de perfil
-* O sistema deve permitir que usuários editem suas informações pessoais
-* O sistema deve permitir que usuários alterem suas senhas
-
-## RRF11 Historio de compras 
-* O sistema deve exibir os itens que o clinte adiquiriu 
-* O sistema deve exbir a data/horario que o cliente comprou e recebeu o pedido 
-
-## RF12 Gerenciamento de vendas 
-* O sistema deve permitir que os vendedores adicionem novos produtos ao catálogo 
-* O sistema deve permitir que os vendedores editem as informações dos produtos 
-* O sistema deve permitir que os vendedores removam os seus produtos 
-* O sistema deve permitir que os vendedores categorizem seus produtos 
+### RF08 Gerenciamento de Vendas
+* O sistema deve permitir adicionar produtos
+* O sistema deve permitir editar produtos
+* O sistema deve permitir remover produtos
+* O sistema deve permitir categorizar produtos
 
 
 
