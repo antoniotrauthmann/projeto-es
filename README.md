@@ -75,7 +75,7 @@ Requisitos:
 * US02 – Estrutura de Banco: Criação do script do banco de dados em SQL para persistência das informações
 * US03 - Espaço para comunidade: implementação do feed de compartilhamento da comunidade
 
-[relatorio - sprint 2](https://github.com/antoniotrauthmann/projeto-es/tree/develop/relatorios/iteracao_2.md)
+[relatorio - sprint 2](https://github.com/antoniotrauthmann/projeto-es/blob/fix/planejamento_sprints/relatorios/iteracao_2.md)
 
 Sprint 2: Registro e Segurança
 Valor: Permitir que usuários se autentiquem na aplicação e tenham acesso seguro às suas informações, garantindo controle de acesso e proteção básica sobre ações na comunidade.
