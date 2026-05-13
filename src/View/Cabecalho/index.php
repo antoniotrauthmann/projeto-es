@@ -5,14 +5,12 @@
 
 <?php if (session_status() === PHP_SESSION_NONE) session_start(); ?>
 
-<!-- <header class="cabecalho">
+<div class="cabecalho">
     <div class="logo">
         <a href="index.php?rota=catalogo" class="logo-l">Expresso Verde</a>
     </div>
 
     <div class="search-container">
-        <button type="button" class="btn btn-primary">Primary</button>
-        <i class="fa-solid fa-circle-user"></i>
         <input type="text" class="search-input" placeholder="Buscar &quot;Ferramentas&quot;">
         
         <div class="location-selector dropdown">
@@ -30,9 +28,9 @@
             <i class="fa-solid fa-magnifying-glass"></i>
         </button>
     </div>
-    <nav class="nav-menu">
+    <div class="nav-menu">
         <a href="index.php?rota=feed" class="btn btn-entrar">comunidade</a>
-        <php 
+        <?php 
         if(isset( $_SESSION["usuario_id"])){
             $id = $_SESSION["usuario_id"];
         } else {
@@ -41,7 +39,7 @@
         
         if ($id == NULL)
         {
-            echo '<a href="index.php?rota=login" class="btn btn-entrar">Entrar</a>';
+            echo '<button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#loginModal">Entrar</button>';
         } 
         else if ($id > 0){
             echo 'Bem vindo,<br>' . $_SESSION["usuario_nome"];
@@ -49,5 +47,15 @@
             echo '<a href="index.php?rota=logout" class="btn btn-entrar">Sair</a>';
         }
         ?>
-    </nav>
-</header> -->
+    </div>
+</div>
+
+<div class="modal fade" id="loginModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-lg modal-dialog-centered">
+    <div class="modal-content bg-transparent border-0">
+      <div class="modal-body p-0 d-flex justify-content-center">
+        <?php include __DIR__ . '/../Login/index.php'; ?>
+      </div>
+    </div>
+  </div>
+</div>
