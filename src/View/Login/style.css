@@ -43,7 +43,8 @@ body {
     box-shadow: 0 10px 30px rgba(0,0,0,0.15);
     /* Modais sem bordas arredondadas conforme o mockup */
     border-radius: 0;
-    overflow: hidden;
+    /* overflow: hidden; */
+    overflow-y: auto;
 }
 
 /* Formulários: Inputs e Labels */

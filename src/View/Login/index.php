@@ -1,4 +1,3 @@
-<?php if (session_status() === PHP_SESSION_NONE) session_start(); ?>
 <!DOCTYPE html>
 <link rel="stylesheet" href="src/View/Login/style.css">
 
@@ -23,21 +22,17 @@
             <div class="brand-text">Expresso Verde</div>
         </div>
 
-        <form>
+        <form action="index.php?rota=login" method="POST">
             <div class="mb-3">
                 <label class="form-label">Email</label>
-                <input type="email" class="form-control" placeholder="Email">
+                <input id="email" name="email" type="email" class="form-control" placeholder="Email" required>
             </div>
             <div class="mb-4">
                 <label class="form-label">Senha</label>
-                <input type="password" class="form-control" placeholder="Senha">
+                <input id="senha" name="senha" type="password" class="form-control" placeholder="Senha" required>
             </div>
             
-            <button type="submit" class="btn btn-brand">Entrar</button>
-            
-            <div class="login-footer-text">
-                Não tem conta? <a href="#">Cadastre-se.</a>
-            </div>
+            <button type="submit" class="btn btn-brand w-100 py-2 fw-bold">Entrar</button>
         </form>
     </div>
 </div>
