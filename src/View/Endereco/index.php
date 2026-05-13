@@ -13,7 +13,7 @@
             <h1>Endereço de Entrega</h1>
             <p class="subtitle">Precisamos do seu endereço para continuar com a compra.</p>
             
-            <form action="index.php?rota=cadastrar_endereco" method="POST" class="endereco-form">
+            <form action="index.php?rota=cadastrar_endereco&origin=<?php echo htmlspecialchars($origin ?? ''); ?>" method="POST" class="endereco-form">
                 <div class="input-group">
                     <label for="cep">CEP</label>
                     <input type="text" id="cep" name="cep" placeholder="00000-000" required>
@@ -45,6 +45,9 @@
                 </div>
                 
                 <button type="submit" class="btn-salvar">Salvar e Continuar</button>
+                <?php if (($origin ?? '') === 'perfil'): ?>
+                    <a href="index.php?rota=perfil" class="btn-cancelar">Cancelar</a>
+                <?php endif; ?>
             </form>
         </div>
     </main>

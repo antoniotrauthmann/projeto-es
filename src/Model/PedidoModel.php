@@ -44,4 +44,16 @@ class PedidoModel {
         $resultado = $stmt->get_result();
         return $resultado->fetch_all(MYSQLI_ASSOC);
     }
+
+    public function buscarEnderecoPorPedido($id_pedido) {
+        $stmt = $this->db->prepare(
+            "SELECT e.* FROM endereco e
+             JOIN pedido p ON p.id_endereco = e.id_endereco
+             WHERE p.id_pedido = ?"
+        );
+        $stmt->bind_param("i", $id_pedido);
+        $stmt->execute();
+        $resultado = $stmt->get_result();
+        return $resultado->fetch_assoc();
+    }
 }

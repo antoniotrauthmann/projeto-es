@@ -2,28 +2,29 @@
     max-width: 900px;
     margin: 40px auto;
     padding: 0 20px;
-    font-family: 'Inter', sans-serif;
+    font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
 }
 
 .pedidos-container h1 {
-    color: #2c3e50;
+    color: #104c4b;
     margin-bottom: 30px;
-    border-bottom: 2px solid #27ae60;
+    border-bottom: 4px solid #c2dfcd;
     padding-bottom: 10px;
     display: inline-block;
+    font-size: 26px;
 }
 
 .empty-pedidos {
     text-align: center;
     padding: 60px 20px;
-    background: #f9f9f9;
+    background: #f9faf8;
     border-radius: 8px;
     box-shadow: 0 4px 6px rgba(0,0,0,0.05);
 }
 
 .empty-pedidos i {
     font-size: 64px;
-    color: #bdc3c7;
+    color: #c2dfcd;
     margin-bottom: 20px;
 }
 
@@ -36,7 +37,7 @@
 .btn-comprar {
     display: inline-block;
     padding: 12px 24px;
-    background: #27ae60;
+    background: #104c4b;
     color: #fff;
     text-decoration: none;
     border-radius: 4px;
@@ -45,7 +46,7 @@
 }
 
 .btn-comprar:hover {
-    background: #2ecc71;
+    background: #0c3837;
 }
 
 .pedidos-lista {
@@ -56,10 +57,10 @@
 
 .pedido-card {
     background: #fff;
-    border-radius: 8px;
+    border-radius: 10px;
     box-shadow: 0 2px 10px rgba(0,0,0,0.05);
     overflow: hidden;
-    border: 1px solid #eee;
+    border: 1px solid #e8ede5;
 }
 
 .pedido-header {
@@ -68,12 +69,12 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    border-bottom: 1px solid #eee;
+    border-bottom: 1px solid #e8ede5;
 }
 
 .pedido-numero {
     font-weight: bold;
-    color: #2c3e50;
+    color: #104c4b;
     margin-right: 15px;
     font-size: 1.1rem;
 }
@@ -124,7 +125,7 @@
 .pedido-itens li {
     display: flex;
     padding: 10px 0;
-    border-bottom: 1px dashed #eee;
+    border-bottom: 1px dashed #e8ede5;
     align-items: center;
 }
 
@@ -148,18 +149,102 @@
     font-weight: 500;
 }
 
+/* ========== Detalhes do Pedido (Endereço) ========== */
+.pedido-detalhes {
+    padding: 0 20px 20px;
+    animation: slideDown 0.3s ease;
+}
+
+@keyframes slideDown {
+    from {
+        opacity: 0;
+        transform: translateY(-8px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.detalhe-endereco {
+    display: flex;
+    align-items: flex-start;
+    gap: 14px;
+    padding: 16px;
+    background: #f0f8f0;
+    border: 1px solid #c2dfcd;
+    border-radius: 8px;
+}
+
+.detalhe-endereco-icon {
+    width: 40px;
+    height: 40px;
+    background: #104c4b;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+}
+
+.detalhe-endereco-icon i {
+    color: #fff;
+    font-size: 16px;
+}
+
+.detalhe-endereco-info {
+    flex: 1;
+}
+
+.detalhe-titulo {
+    font-weight: 700;
+    color: #104c4b;
+    font-size: 13px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    margin-bottom: 6px;
+}
+
+.detalhe-rua {
+    font-weight: 600;
+    color: #2c3e50;
+    font-size: 15px;
+    margin-bottom: 4px;
+}
+
+.detalhe-complemento {
+    color: #7f8c8d;
+    font-size: 13px;
+    line-height: 1.5;
+}
+
+.detalhe-sem-endereco {
+    color: #7f8c8d;
+    font-style: italic;
+    padding: 12px;
+    background: #f9f9f9;
+    border-radius: 6px;
+    text-align: center;
+}
+
+/* ========== Footer ========== */
 .pedido-footer {
     background: #fbfcfc;
     padding: 15px 20px;
     display: flex;
-    justify-content: flex-end;
+    justify-content: space-between;
     align-items: center;
-    border-top: 1px solid #eee;
+    border-top: 1px solid #e8ede5;
+}
+
+.pedido-total-wrapper {
+    display: flex;
+    align-items: center;
+    gap: 10px;
 }
 
 .pedido-total-label {
     color: #7f8c8d;
-    margin-right: 15px;
 }
 
 .pedido-total-valor {
@@ -168,10 +253,41 @@
     color: #27ae60;
 }
 
+.btn-detalhes {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    padding: 8px 16px;
+    background: transparent;
+    border: 1px solid #dce4d1;
+    border-radius: 6px;
+    color: #104c4b;
+    font-size: 13px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background 0.2s, border-color 0.2s;
+}
+
+.btn-detalhes:hover {
+    background: #f0f8f0;
+    border-color: #104c4b;
+}
+
+.btn-detalhes i {
+    font-size: 12px;
+    transition: transform 0.3s;
+}
+
 @media (max-width: 600px) {
     .pedido-header {
         flex-direction: column;
         align-items: flex-start;
         gap: 10px;
+    }
+    
+    .pedido-footer {
+        flex-direction: column;
+        gap: 12px;
+        align-items: flex-start;
     }
 }
