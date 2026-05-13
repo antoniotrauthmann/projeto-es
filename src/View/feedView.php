@@ -114,7 +114,7 @@
                     <a href="index.php?rota=excluir&id=<?= $post['id_post'] ?>" 
                        class="btn-excluir" 
                        onclick="return confirm('Tem certeza que deseja apagar seu post?')">
-                       Excluir ðŸ—‘ï¸
+                       Excluir  🗑️
                     </a>
                 <?php endif; ?>
 
@@ -133,7 +133,7 @@
 
                 <div class="curtidas-container">
                     <a href="index.php?rota=curtir&id=<?= $post['id_post'] ?>" style="text-decoration: none; color: #ff4757; font-weight: bold;">
-                        â¤ï¸ <?= $post['curtidas'] ?> Curtidas
+                        ❤️ <?= $post['curtidas'] ?> Curtidas
                     </a>
                 </div>
             </div>
