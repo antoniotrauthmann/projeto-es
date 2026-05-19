@@ -1,12 +1,14 @@
-<!DOCTYPE html>
+<?php include __DIR__ . '/../Cabecalho/index.php'; ?>
 
-    <link rel="stylesheet" href="src/View/Catalogo_produtos/style.css">
+<link rel="stylesheet" href="src/View/Catalogo_produtos/style.css">
 
-<div class="marketplace-grid">
-<!-- <php 
-    $sql = "SELECT * FROM produto p LEFT JOIN imagens_produto i ON p.id_produto = i.id_produto GROUP BY p.id_produto"; 
-    $result = $mysqli->query($sql);
-    
+<?php 
+    $sql = "SELECT COUNT(DISTINCT p.id_produto) AS total_produtos FROM produto p";
+    $resultado = $mysqli->query($sql);
+    $total_produtos = $resultado->fetch_assoc()["total_produtos"];
+?>
+<!-- 
+<php    
     if ($result->num_rows > 0) {
         while($row = $result->fetch_assoc()) {
             echo('
@@ -47,11 +49,32 @@
     </div>
 
     <!-- Banner Principal -->
-    <div class="banner">
+    <div id="carouselExample" class="carousel slide banner">
+        <div class="carousel-inner">
+            <div class="carousel-item active">
+            <img src="public/img/Imagem_login.png" class="propaganda-imagem d-block w-100 h-100" alt="...">
+            </div>
+            <div class="carousel-item">
+            <img src="..." class="d-block w-100" alt="...">
+            </div>
+            <div class="carousel-item">
+            <img src="..." class="d-block w-100" alt="...">
+            </div>
+        </div>
+        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExample" data-bs-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Previous</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#carouselExample" data-bs-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Next</span>
+        </button>
+    </div>
+   <!--  <div class="banner">
         <div class="arrow">&lt;</div>
         <div class="banner-text">PROPAGANDA</div>
         <div class="arrow">&gt;</div>
-    </div>
+    </div> -->
 
     <!-- Seção de Conteúdo (Fundo Cinza) -->
     <div class="container">
@@ -65,12 +88,20 @@
 
         <!-- Produtos Relevantes -->
         <div class="product-grid">
-            <div class="product-box">Produto Relevante 1</div>
-            <div class="product-box">Produto Relevante 2</div>
-            <div class="product-box">Produto Relevante 3</div>
-            <div class="product-box">Produto Relevante 4</div>
-            <div class="product-box">Produto Relevante 5</div>
+        <?php 
+                $sql = "SELECT p.produto_nome, i.produto_caminho_imagem  FROM produto p LEFT JOIN imagens_produto i ON p.id_produto = i.id_produto GROUP BY p.id_produto LIMIT 5"; 
+                $result = $mysqli->query($sql);
+                // print_r($result->fetch_assoc());
+                $i = 0;
+                if ($result->num_rows > 0) {
+                    while($i < 5 && $row = $result->fetch_assoc()) {
+                        echo "<div class=\"product-box\" style=\"background-image: url('/PROJETO-ES/public/uploads/{$row['produto_caminho_imagem']}'); max-height: 200px; background-size: cover; background-position: center;\">{$row['produto_nome']}</div>";
+                        $i++;
+                        }
+                        }
+                        ?>
         </div>
     </div>
 
 </div>
+<?php $mysqli->close(); ?>
