@@ -15,7 +15,7 @@ require_once 'src/Controller/PedidoController.php';
 require_once 'src/Controller/EnderecoController.php';
 
 //(Roteamento simples)
-$rota = $_GET['rota'] ?? 'login';
+$rota = $_GET['rota'] ?? 'catalogo';
 
 $controller = new PostController($mysqli);
 $usuarioController = new UsuarioController($mysqli);

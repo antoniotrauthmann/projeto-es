@@ -90,13 +90,13 @@
 
     <nav>
         <a href="index.php?rota=feed" class="active">Comunidade</a>
-        <a href="index.php?rota=manual">Manual de Cuidados ðŸŒ¿</a>
+        <a href="index.php?rota=manual">Manual de Cuidados</a>
     </nav>
 
     <h2>Compartilhe com a comunidade</h2>
 
     <form action="index.php?rota=salvar" method="POST" enctype="multipart/form-data">
-        <textarea name="conteudo_texto" placeholder="O que vocÃª quer compartilhar?"></textarea>
+        <textarea name="conteudo_texto" placeholder="O que você quer compartilhar?"></textarea>
         <br>
         <input type="file" name="imagem" accept="image/*">
         <br>
